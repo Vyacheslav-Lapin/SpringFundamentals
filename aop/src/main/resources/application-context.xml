@@ -9,9 +9,9 @@
 	<aop:aspectj-autoproxy />
  -->
 
-	<bean id="bar" class="lab.model.ApuBar" />
+	<bean id="bar" class="lab.lab.model.ApuBar" />
 
-	<bean id="customer" class="lab.model.Customer">
+	<bean id="customer" class="lab.lab.model.Customer">
 		<property name="name" value="Homer" />
 		<property name="broke" value="false" />
 	</bean>

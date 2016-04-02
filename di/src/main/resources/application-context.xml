@@ -5,7 +5,7 @@
        xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="lab.model.UsualPerson"
+    <bean id="person" class="UsualPerson"
           c:id="0" c:name="John Smith" c:age="35" c:height="1.78f" c:isProgrammer="1"
           c:country-ref="country">
         <constructor-arg name="contacts">
@@ -16,6 +16,6 @@
         </constructor-arg>
     </bean>
 
-    <bean id="country" class="lab.model.Country"
+    <bean id="country" class="Country"
           p:id="1" p:name="Russia" p:codeName="RU"/>
 </beans>

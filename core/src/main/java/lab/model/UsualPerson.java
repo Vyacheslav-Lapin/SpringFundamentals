@@ -81,7 +81,7 @@ public class UsualPerson implements Person {
         String s = "Name: " + name + "\n"
                 + "Age: " + age + "\n"
                 + "Height: " + height + "\n"
-                + "lab.model.Country: " + country + "\n"
+                + "Country: " + country + "\n"
                 + "Is Programmer?: " + isProgrammer + "\n";
         if ((contacts != null) && (!contacts.isEmpty())) {
             s += "Contacts: ";
