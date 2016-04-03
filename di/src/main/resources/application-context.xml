@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/lang    http://www.springframework.org/schema/lang/spring-lang.xsd">
 
-    <bean id="person" class="UsualPerson"
+    <context:annotation-config/>
+    <context:component-scan base-package="core"/>
+    <context:property-placeholder location="spring-config.properties"/>
+
+    <bean id="person" class="lab.model.UsualPerson"
           c:id="0" c:name="John Smith" c:age="35" c:height="1.78f" c:isProgrammer="1"
           c:country-ref="country">
         <constructor-arg name="contacts">
@@ -16,6 +25,17 @@
         </constructor-arg>
     </bean>
 
-    <bean id="country" class="Country"
-          p:id="1" p:name="Russia" p:codeName="RU"/>
+    <bean id="country" class="lab.model.Country" p:id="1" p:name="Russia" p:codeName="RU"/>
+
+    <!--<bean id="firstName" class="java.lang.String" c:_0="Фёдор"/>-->
+    <bean id="patronymic" class="java.lang.String" c:_0="Владимирович"/>
+    <bean id="lastName" class="java.lang.String" c:_0="Емельяненко"/>
+
+    <bean id="xmlHelloMessageGenerator" class="core.xml.XmlHelloMessageGenerator"
+          c:firstName="Фёдор" c:lastName-ref="lastName" p:patronymic-ref="patronymic"/>
+
+    <bean id="annotationHelloMessageGenerator" class="core.annotations.AnnotationHelloMessageGenerator"/>
+
+    <lang:groovy id="groovyHelloMessageGenerator" refresh-check-delay="3000"
+                 script-source="file:${groovy-address}\GroovyHelloMessageGenerator.groovy"/>
 </beans>
