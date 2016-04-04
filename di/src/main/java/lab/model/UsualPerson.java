@@ -1,5 +1,7 @@
 package lab.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +22,7 @@ public class UsualPerson implements Person {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
+    @Autowired
     private final Country country;
 
     private final List<String> contacts;
@@ -75,10 +78,10 @@ public class UsualPerson implements Person {
     public String toString() {
         return "UsualPerson{" + "id=" + id +
                 ", name='" + name + '\'' +
-                ", country=" + country +
                 ", age=" + age +
                 ", height=" + height +
                 ", isProgrammer=" + isProgrammer +
+                ", country=" + country +
                 ", contacts=" + contacts +
                 '}';
     }
@@ -99,6 +102,6 @@ public class UsualPerson implements Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, country, age, height, isProgrammer, contacts);
+        return Objects.hash(id, name, age, height, isProgrammer, country, contacts);
     }
 }

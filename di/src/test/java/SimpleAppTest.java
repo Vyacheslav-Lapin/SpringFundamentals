@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 import static java.util.Arrays.asList;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -24,12 +26,20 @@ public class SimpleAppTest {
 
     @Test
     public void testInitPerson() {
-        assertThat(context.getBean(Person.class), is(getExpectedPerson()));
+        Person person = context.getBean(Person.class);
+        assertThat(person, is(getExpectedPerson()));
+        System.out.println(person.toString());
     }
 
-    private Person getExpectedPerson() {
-        return new UsualPerson(0, "John Smith", 35, 1.78f, true,
-                new Country(1, "Russia", "RU"),
-                asList("asd@asd.ru", "+7-234-456-67-89"));
+    static Person getExpectedPerson() {
+        int id = 0;
+        String name = "John Smith";
+        int age = 35;
+        float height = 1.78f;
+        boolean isProgrammer = true;
+        Country country = new Country(1, "Russia", "RU");
+        List<String> contacts = asList("asd@asd.ru", "+7-234-456-67-89");
+
+        return new UsualPerson(id, name, age, height, isProgrammer, country, contacts);
     }
 }

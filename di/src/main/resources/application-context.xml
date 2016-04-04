@@ -25,7 +25,8 @@
         </constructor-arg>
     </bean>
 
-    <bean id="country" class="lab.model.Country" p:id="1" p:name="Russia" p:codeName="RU"/>
+    <bean id="country" class="lab.model.Country"
+          p:id="1" p:name="Russia" p:codeName="RU"/>
 
     <!--<bean id="firstName" class="java.lang.String" c:_0="Фёдор"/>-->
     <bean id="patronymic" class="java.lang.String" c:_0="Владимирович"/>
