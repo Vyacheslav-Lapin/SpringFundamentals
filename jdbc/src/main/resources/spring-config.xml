@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                                                          http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                                                      http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/jdbc
+                                                        http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
+                           http://www.springframework.org/schema/jee
+                                                          http://www.springframework.org/schema/jee/spring-jee-4.1.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="foo.bar"/>
+
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"-->
+    <!--p:driverClassName="${jdbc.driverClassName}"-->
+    <!--p:url="${jdbc.url}"-->
+    <!--p:username="${jdbc.username}"-->
+    <!--p:password="${jdbc.password}"/>-->
+
+    <!--<jee:jndi-lookup jndi-name="java:comp/env/jdbc/prospring3ch8"/>-->
+
+    <!--<context:property-placeholder location="jdbc.properties"/>-->
+    <!--<bean id="dataSource"-->
+    <!--class="org.apache.commons.dbcp2.BasicDataSource"-->
+    <!--destroy-method="close"-->
+    <!--p:driverClassName="${jdbc.driverClassName}"-->
+    <!--p:url="${jdbc.url}"-->
+    <!--p:username="${jdbc.username}"-->
+    <!--p:password="${jdbc.password}"/>-->
+
+    <!--<jdbc:embedded-database id="dataSource" type="DERBY">-->
+    <!--<jdbc:script location="classpath:derby-schema.sql"/>-->
+    <!--<jdbc:script location="classpath:test-data.sql"/>-->
+    <!--</jdbc:embedded-database>-->
+
+    <jdbc:embedded-database id="dataSource" type="H2">
+        <jdbc:script location="classpath:h2-schema.sql"/>
+        <jdbc:script location="classpath:test-data.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" c:_0-ref="dataSource"/>
+
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"
+          c:_0-ref="dataSource"/>
+
+    <!--<bean id="insertContactWithTelDetails" class="org.springframework.jdbc.object.BatchSqlUpdate"-->
+          <!--c:_0-ref="dataSource"-->
+          <!--c:_1="insert into contact_tel_detail (contact_id, tel_type, tel_number) values (:contact_id, :tel_type, :tel_number)"-->
+          <!--p:batchSize="10"/>-->
+
+</beans>
