@@ -11,20 +11,16 @@
 
     <artifactId>quartz</artifactId>
 
-    <properties>
-        <quartz.version>2.2.2</quartz.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
+            <version>LATEST</version>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>${quartz.version}</version>
+            <version>LATEST</version>
         </dependency>
     </dependencies>
 
