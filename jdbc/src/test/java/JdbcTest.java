@@ -2,11 +2,9 @@ import lab.dao.CountryDao;
 import lab.model.Country;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,25 +12,30 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:application-context.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration("classpath:jdbc-application-context.xml")
 public class JdbcTest {
 
-    @Autowired
+//    @Autowired
     private CountryDao countryDao;
 
     private List<Country> expectedCountryList = new ArrayList<>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
-    private Country countryWithChangedName = new Country(1, "Russia", "RU");
+    private Country countryWithChangedName = new Country(1, "Russian Federation", "RU");
 
     @Before
     public void setUp() throws Exception {
+
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "classpath:jdbc-application-context.xml");
+        countryDao = context.getBean(CountryDao.class);
+
         initExpectedCountryLists();
         countryDao.loadCountries();
     }
 
     @Test
-    @DirtiesContext
+//    @DirtiesContext
     public void testCountryList() {
         List<Country> countryList = countryDao.getCountryList();
         assertNotNull(countryList);
@@ -43,7 +46,7 @@ public class JdbcTest {
     }
 
     @Test
-    @DirtiesContext
+//    @DirtiesContext
     public void testCountryListStartsWithA() {
         List<Country> countryList = countryDao.getCountryListStartWith("A");
         assertNotNull(countryList);
@@ -56,7 +59,7 @@ public class JdbcTest {
     @Test
     @DirtiesContext
     public void testCountryChange() {
-        countryDao.updateCountryName("RU", "Russia");
+        countryDao.updateCountryName("RU", countryWithChangedName.getName());
         assertEquals(countryWithChangedName, countryDao.getCountryByCodeName("RU"));
     }
 
