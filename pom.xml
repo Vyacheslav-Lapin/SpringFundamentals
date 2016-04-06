@@ -26,10 +26,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <groovy.version>2.4.6</groovy.version>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <junit.version>4.12</junit.version>
-        <javax.persistence.version>2.1.1</javax.persistence.version>
     </properties>
 
     <dependencies>
@@ -37,38 +33,38 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>${groovy.version}</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>javax.persistence</artifactId>
-            <version>${javax.persistence.version}</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <version>LATEST</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>LATEST</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
