@@ -1,15 +1,16 @@
 package lab.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "country")
 public class Country implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private int id;
-
     private String name;
-
     private String codeName;
 
     public Country() {
@@ -26,6 +27,8 @@ public class Country implements Serializable {
         this.codeName = codeName;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {
         return id;
     }
@@ -34,6 +37,7 @@ public class Country implements Serializable {
         this.id = id;
     }
 
+    @Column
     public String getName() {
         return name;
     }
@@ -42,6 +46,7 @@ public class Country implements Serializable {
         this.name = name;
     }
 
+    @Column(name="code_name")
     public String getCodeName() {
         return codeName;
     }
@@ -51,22 +56,17 @@ public class Country implements Serializable {
     }
 
     public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
+        Country country;
 
-        Country country = (Country) o;
-
-        if (codeName != null ? !codeName.equals(country.codeName)
-                : country.codeName != null)
-            return false;
-        if (name != null ? !name.equals(country.name) : country.name != null)
-            return false;
-
-        return true;
+        return this == o
+                || !(o == null || getClass() != o.getClass())
+                && (codeName != null
+                    ? codeName.equals(((Country) o).codeName)
+                    : (country = (Country) o).codeName == null
+                && (name != null ? name.equals(country.name) : country.name == null));
     }
 
+    @Override
     public int hashCode() {
         int result = 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);

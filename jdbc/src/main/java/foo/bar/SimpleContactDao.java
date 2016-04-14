@@ -1,4 +1,4 @@
-package bar;
+package foo.bar;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

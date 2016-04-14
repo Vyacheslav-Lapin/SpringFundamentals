@@ -16,7 +16,7 @@
 	</tr></thead>
 	
 <%--
-foo.bar.bean.EmployeeList employees = (foo.bar.bean.EmployeeList)request.getAttribute("employees");
+foo.foo.bar.bean.EmployeeList employees = (foo.foo.bar.bean.EmployeeList)request.getAttribute("employees");
 out.println(employees.getEmployees());
 --%>
 

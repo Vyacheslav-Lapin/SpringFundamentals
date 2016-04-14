@@ -1,6 +1,6 @@
-import bar.AppConfig;
-import bar.Contact;
-import bar.ContactDAO;
+import foo.bar.AppConfig;
+import foo.bar.Contact;
+import foo.bar.ContactDAO;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

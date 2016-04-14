@@ -1,4 +1,4 @@
-package bar;
+package foo.bar;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
     public static void main(String... args) throws ClassNotFoundException {
         ContactDAO contactDAO =
-                new AnnotationConfigApplicationContext(Class.forName(args[0]))
+                new AnnotationConfigApplicationContext(args.length == 0 ? AppConfig.class : Class.forName(args[0]))
                         .getBean("contactDAO", ContactDAO.class);
 
 //        findFirstNameById(contactDAO);

@@ -1,8 +1,7 @@
-package bar;
+package foo.bar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.jdbc.core.SqlParameter;
@@ -20,8 +19,8 @@ import java.sql.Types;
  * @version 0.1 (04.03.2015 18:18).
  */
 @Configuration
-@ComponentScan(basePackages = "foo.foo.bar")
 @ImportResource("classpath:spring-config.xml")
+//@ComponentScan(basePackages = "foo.bar")
 public class AppConfig {
 
     @Autowired

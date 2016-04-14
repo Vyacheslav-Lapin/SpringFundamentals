@@ -1,4 +1,4 @@
-package bar;
+package foo.bar;
 
 import java.util.List;
 

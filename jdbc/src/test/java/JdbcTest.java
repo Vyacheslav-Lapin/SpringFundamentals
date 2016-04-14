@@ -2,9 +2,11 @@ import lab.dao.CountryDao;
 import lab.model.Country;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +14,11 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration("classpath:jdbc-application-context.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:jdbc-application-context.xml")
 public class JdbcTest {
 
-//    @Autowired
+    @Autowired
     private CountryDao countryDao;
 
     private List<Country> expectedCountryList = new ArrayList<>();
@@ -26,9 +28,9 @@ public class JdbcTest {
     @Before
     public void setUp() throws Exception {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext(
-                "classpath:jdbc-application-context.xml");
-        countryDao = context.getBean(CountryDao.class);
+//        ApplicationContext context = new ClassPathXmlApplicationContext(
+//                "classpath:jdbc-application-context.xml");
+//        countryDao = context.getBean(CountryDao.class);
 
         initExpectedCountryLists();
         countryDao.loadCountries();

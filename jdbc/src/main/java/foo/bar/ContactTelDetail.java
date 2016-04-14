@@ -1,4 +1,4 @@
-package bar;
+package foo.bar;
 
 /**
  * @author Vyacheslav Lapin (http://vlapin.ru/)
