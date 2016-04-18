@@ -32,7 +32,7 @@
 
 <hr/>
 
-<a href="http://localhost:8080/lab-9-mvc/adduser.form"><spring:message code="form.adduser.name"/></a>
+<a href="${pageContext.request.contextPath}/adduser.form"><spring:message code="form.adduser.name"/></a>
 
 </body>
 </html>

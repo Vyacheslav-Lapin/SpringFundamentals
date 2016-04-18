@@ -18,6 +18,6 @@
     <jdbc:embedded-database id="dataSource">
     </jdbc:embedded-database>
 
-    <bean id="countryDao" class="lab.dao.jpa.CountryJpaDaoImpl"/>
+    <bean id="countryDaoImpl" class="lab.dao.jpa.CountryJpaDaoImpl"/>
 
 </beans>

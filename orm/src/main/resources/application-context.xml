@@ -16,7 +16,7 @@
         <jdbc:script location="db-schema.sql"/>
     </jdbc:embedded-database>
 
-    <bean id="countryDao" class="lab.dao.jpa.CountryJpaDaoImpl"/>
+    <bean id="countryDaoImpl" class="lab.dao.jpa.CountryJpaDaoImpl"/>
 
     <bean id="lcemf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource" p:persistenceUnitName="springframework.lab.orm.jpa"

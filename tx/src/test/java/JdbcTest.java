@@ -1,4 +1,5 @@
 import lab.dao.CountryDao;
+import lab.dao.CountryDaoImpl;
 import lab.model.Country;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,8 +63,8 @@ public class JdbcTest {
     }
 
     private void initExpectedCountryLists() {
-        for (int i = 0; i < CountryDao.COUNTRY_INIT_DATA.length; i++) {
-            String[] countryInitData = CountryDao.COUNTRY_INIT_DATA[i];
+        for (int i = 0; i < CountryDaoImpl.COUNTRY_INIT_DATA.length; i++) {
+            String[] countryInitData = CountryDaoImpl.COUNTRY_INIT_DATA[i];
             Country country = new Country(i, countryInitData[0], countryInitData[1]);
             expectedCountryList.add(country);
             if (country.getName().startsWith("A")) {

@@ -71,11 +71,11 @@ public class CountryServiceImpl implements CountryService {
         return countryDao.getCountryList();
     }
 
-    public CountryDao getCountryDao() {
+    public CountryDao getCountryDaoImpl() {
         return countryDao;
     }
 
-    public void setCountryDao(CountryDao countryDao) {
+    public void setCountryDaoImpl(CountryDao countryDao) {
         this.countryDao = countryDao;
     }
 

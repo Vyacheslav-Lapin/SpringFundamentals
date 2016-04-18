@@ -3,11 +3,9 @@ package lab.mvc.form.bean;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import static javax.swing.text.StyleConstants.Size;
-
 
 public class UserFormBean {
-	
+
 	public UserFormBean(){}
 
 	@NotNull (message="{NotNull.userFormBean.firstName}")
