@@ -15,9 +15,6 @@
 
     <dependencies>
 
-        <!--compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:+'
-    compile 'org.glassfish.web:javax.servlet.jsp.jstl:+'-->
-
         <dependency>
             <groupId>com.epam.spring.fundamentals</groupId>
             <artifactId>tx</artifactId>
@@ -25,9 +22,15 @@
         </dependency>
 
         <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>javax.servlet.jsp.jstl</artifactId>
+            <version>LATEST</version>
         </dependency>
 
 

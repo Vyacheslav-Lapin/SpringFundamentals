@@ -3,28 +3,23 @@
  */
 package lab.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import lab.domain.User;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-/**
- * @author it.vaclav.kiev.ua
- * 
- */
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 
 public class HsqlUserDao extends JdbcDaoSupport implements UserDao {
 
-	private static Log log = LogFactory.getLog(HsqlUserDao.class); 
+    private static Log log = LogFactory.getLog(HsqlUserDao.class);
 
-	@Override
-	public void insert(User user) {
+    @Override
+    public void insert(User user) {
 
 		if (user != null) {
 			log.debug( "Processing user: " + user);
@@ -37,8 +32,8 @@ public class HsqlUserDao extends JdbcDaoSupport implements UserDao {
 		}
 	}
 
-	@Override
-	public User select(int id) {
+    @Override
+    public User select(int id) {
 
 		User user = null;
 
@@ -52,14 +47,14 @@ public class HsqlUserDao extends JdbcDaoSupport implements UserDao {
 		return user;
 	}
 
-	@Override
-	public List<User> selectAll() {
-		return this.getJdbcTemplate().query(
-				"select id, firstname, lastname from user"
+    @Override
+    public List<User> selectAll() {
+        return this.getJdbcTemplate().query(
+                "select id, firstname, lastname from user"
 				, new UserMapper());
 	}
 
-	private static final class UserMapper implements RowMapper<User> {
+    private static final class UserMapper implements RowMapper<User> {
 
 		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 			User user = new User();
