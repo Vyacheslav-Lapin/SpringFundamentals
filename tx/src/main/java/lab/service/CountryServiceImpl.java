@@ -14,7 +14,6 @@ import java.util.List;
 @Transactional
 public class CountryServiceImpl implements CountryService {
 
-
     @Autowired
     private CountryDao countryDao;
 
@@ -69,6 +68,11 @@ public class CountryServiceImpl implements CountryService {
 
     public List<Country> getAllCountries() {
         return countryDao.getCountryList();
+    }
+
+    @Override
+    public void saveCountry(Country country) {
+        countryDao.insert(country);
     }
 
     public CountryDao getCountryDaoImpl() {

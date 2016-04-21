@@ -22,4 +22,6 @@ public interface CountryService {
     List<Country> getAllCountriesNotSupported();
 
     List<Country> getAllCountries();
+
+    void saveCountry(Country country);
 }

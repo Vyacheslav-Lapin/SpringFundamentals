@@ -1,6 +1,7 @@
 package lab.dao;
 
 import lab.model.Country;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -9,7 +10,9 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import java.util.List;
 
+@Slf4j
 public class CountryDaoImpl extends JdbcDaoSupport implements CountryDao {
+
     private static final String LOAD_COUNTRIES_SQL = "insert into country (name, code_name) values ";
 
     private static final String GET_ALL_COUNTRIES_SQL = "select * from country";
@@ -90,4 +93,16 @@ public class CountryDaoImpl extends JdbcDaoSupport implements CountryDao {
         }
         return countryList.get(0);
     }
+
+    @Override
+    public void insert(Country country) {
+            if (country != null) {
+//                log.debug( "Processing country: " + country);
+                getJdbcTemplate().update(
+                        "insert into country (name, code_name) values (?, ?)",
+                        country.getName(), country.getCodeName());
+            } else {
+//                log.debug("Domain country is null!");
+            }
+        }
 }

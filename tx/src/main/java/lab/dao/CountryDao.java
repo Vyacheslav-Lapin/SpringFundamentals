@@ -18,4 +18,6 @@ public interface CountryDao extends InitializingBean {
 
     Country getCountryByName(String name)
             throws CountryNotFoundException;
+
+    void insert(Country country);
 }

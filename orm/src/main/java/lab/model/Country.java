@@ -76,7 +76,7 @@ public class Country implements Serializable {
 
     @Override
     public String toString() {
-        return "Country [id=" + id + ", name=" + name + ", codeName="
+        return "Country [id=" + id + ", name=" + name + ", code="
                 + codeName + "]";
     }
 }

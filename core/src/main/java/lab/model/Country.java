@@ -50,7 +50,7 @@ public class Country implements Serializable{
     public String toString() {
         return "Country{" + "id=" + id +
                 ", name='" + name + '\'' +
-                ", codeName='" + codeName + "\'}";
+                ", code='" + codeName + "\'}";
     }
 
     @Override
