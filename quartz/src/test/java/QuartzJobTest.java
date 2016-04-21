@@ -24,13 +24,16 @@ public class QuartzJobTest {
         try {
             assertTrue(ScheduleLog.getStringValue().isEmpty());
             System.out.println("1: " + ScheduleLog.getStringValue());
+
             Thread.sleep(3000);
             assertTrue(ScheduleLog.getStringValue().isEmpty());
             System.out.println("2: " + ScheduleLog.getStringValue());
             int logLength = ScheduleLog.getStringValue().length();
+
             Thread.sleep(3000);
             System.out.println("3: " + ScheduleLog.getStringValue());
             assertTrue(ScheduleLog.getStringValue().contains("I'm printing job..."));
+
             for (int i = 0; i < 5; i++) {
                 System.out.println(i + 4 + ": " + ScheduleLog.getStringValue());
                 assertTrue(ScheduleLog.getStringValue().length() > logLength);

@@ -12,6 +12,13 @@
     <artifactId>quartz</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.epam.spring.fundamentals</groupId>
+            <artifactId>tx</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>

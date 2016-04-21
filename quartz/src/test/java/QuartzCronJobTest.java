@@ -25,6 +25,7 @@ public class QuartzCronJobTest {
             assertTrue(ScheduleLog.getStringValue().contains("I'm printing job..."));
             System.out.println("1: " + ScheduleLog.getStringValue());
             int logLength = ScheduleLog.getStringValue().length();
+
             Thread.sleep(4000);
             System.out.println("2: " + ScheduleLog.getStringValue());
             assertTrue(ScheduleLog.getStringValue().length() > logLength);
